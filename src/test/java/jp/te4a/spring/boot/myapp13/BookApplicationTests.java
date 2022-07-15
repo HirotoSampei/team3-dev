@@ -8,6 +8,7 @@ class BookApplicationTests {
 
 	@Test
 	void contextLoads() {
+		//edited by kitaken83
 	}
 
 }
