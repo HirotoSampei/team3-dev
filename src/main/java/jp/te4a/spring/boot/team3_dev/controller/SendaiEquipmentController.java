@@ -16,7 +16,7 @@ import jp.te4a.spring.boot.team3_dev.form.EquipmentForm;
 import jp.te4a.spring.boot.team3_dev.service.SendaiEquipmentService;
 
 @Controller
-@RequestMapping("books")
+@RequestMapping("sendai")
 public class SendaiEquipmentController {
   @Autowired
   SendaiEquipmentService sendaiService;
@@ -40,8 +40,8 @@ public class SendaiEquipmentController {
 
   @PostMapping(path = "edit", params = "form")
   String editForm(@RequestParam Integer machine_id, EquipmentForm form) {
-    EquipmentForm bookForm = sendaiService.findOne(machine_id);
-    BeanUtils.copyProperties(bookForm,  form);
+    EquipmentForm equipmentForm = sendaiService.findOne(machine_id);
+    BeanUtils.copyProperties(equipmentForm,  form);
     return "books/edit";
   }
   @PostMapping(path = "edit")

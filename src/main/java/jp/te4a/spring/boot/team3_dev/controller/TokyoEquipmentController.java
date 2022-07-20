@@ -16,7 +16,7 @@ import jp.te4a.spring.boot.team3_dev.form.EquipmentForm;
 import jp.te4a.spring.boot.team3_dev.service.TokyoEquipmentService;
 
 @Controller
-@RequestMapping("books")
+@RequestMapping("equipment")
 public class TokyoEquipmentController {
   @Autowired
   TokyoEquipmentService tokyoService;
@@ -26,8 +26,8 @@ public class TokyoEquipmentController {
   }
   @GetMapping
   String list(Model model) {
-    model.addAttribute("books", tokyoService.findAll());
-    return "books/list";
+    model.addAttribute("equipment", tokyoService.findAll());
+    return "equipment/list";
   }
   @PostMapping(path="create")
   String create(@Validated EquipmentForm form, BindingResult result , Model model) {
@@ -35,14 +35,14 @@ public class TokyoEquipmentController {
       return list(model);
     }
     tokyoService.create(form);
-    return "redirect:/books";
+    return "redirect:/equipment";
   }
 
   @PostMapping(path = "edit", params = "form")
   String editForm(@RequestParam Integer machine_id, EquipmentForm form) {
-    EquipmentForm bookForm = tokyoService.findOne(machine_id);
-    BeanUtils.copyProperties(bookForm,  form);
-    return "books/edit";
+    EquipmentForm equipmentForm = tokyoService.findOne(machine_id);
+    BeanUtils.copyProperties(equipmentForm,  form);
+    return "equipment/edit";
   }
   @PostMapping(path = "edit")
   String edit(@RequestParam Integer machine_id, @Validated EquipmentForm form,
@@ -51,16 +51,16 @@ public class TokyoEquipmentController {
   return editForm(machine_id, form);
   }
   tokyoService.update(form);
-  return "redirect:/books";
+  return "redirect:/equipment";
   }
 
   @PostMapping(path = "delete")
   String delete(@RequestParam Tokyo machine_id) {
     tokyoService.delete(machine_id);
-    return "redirect:/books";
+    return "redirect:/equipment";
   }
   @PostMapping(path = "edit", params = "goToTop")
   String goToTop() {
-    return "redirect:/books";
+    return "redirect:/equipment";
   }
 }

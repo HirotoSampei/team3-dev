@@ -40,8 +40,8 @@ public class OsakaEquipmentController {
 
   @PostMapping(path = "edit", params = "form")
   String editForm(@RequestParam Integer machine_id, EquipmentForm form) {
-    EquipmentForm bookForm = osakaService.findOne(machine_id);
-    BeanUtils.copyProperties(bookForm,  form);
+    EquipmentForm equipmentForm = osakaService.findOne(machine_id);
+    BeanUtils.copyProperties(equipmentForm,  form);
     return "books/edit";
   }
   @PostMapping(path = "edit")

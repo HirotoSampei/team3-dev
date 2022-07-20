@@ -16,7 +16,7 @@ import jp.te4a.spring.boot.team3_dev.form.EquipmentForm;
 import jp.te4a.spring.boot.team3_dev.service.SaitamaEquipmentService;
 
 @Controller
-@RequestMapping("books")
+@RequestMapping("saitama")
 public class SaitamaEquipmentController {
   @Autowired
   SaitamaEquipmentService saitamaService;
@@ -40,8 +40,8 @@ public class SaitamaEquipmentController {
 
   @PostMapping(path = "edit", params = "form")
   String editForm(@RequestParam Integer machine_id, EquipmentForm form) {
-    EquipmentForm bookForm = saitamaService.findOne(machine_id);
-    BeanUtils.copyProperties(bookForm,  form);
+    EquipmentForm equipmentForm = saitamaService.findOne(machine_id);
+    BeanUtils.copyProperties(equipmentForm,  form);
     return "books/edit";
   }
   @PostMapping(path = "edit")
