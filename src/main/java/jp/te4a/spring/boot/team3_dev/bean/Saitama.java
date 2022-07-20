@@ -27,7 +27,6 @@ public class Saitama {
 	@Column(nullable = false)
 	private String spec;
 	//purchase_date
-	@JsonFormat(pattern="yyyy/MM/dd")
 	private Date purchase_date;
 	private int useful_date;
 	private String depreciation;
@@ -36,7 +35,6 @@ public class Saitama {
 	@Column(nullable = false)
 	private String location;
 	//expiration_date
-	@JsonFormat(pattern="yyyy/MM/dd")
 	private Date expiration_date;
 	private Integer price;
 }
