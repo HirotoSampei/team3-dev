@@ -11,11 +11,20 @@ import lombok.NoArgsConstructor;
 public class EquipmentForm {
   private Integer id ;
   @NotNull
-  @Size(min = 3)
-  private String title;
-  @Size(min = 3, max = 20)
-  @Writer(ok="東北タロウ")
-  private String writer;
+  @Size(max = 9)
+  private String machine_id;
+  @NotNull
+  @Size(max = 40)
+  private String name;
+  @NotNull
+  @Size(max = 200)
+  private String model_number;
+  @NotNull
+  @Size(max = 200)
+  private String maker;
+  @NotNull
+  @Size(max = 200)
+  private String spec;
   private String publisher;
   @Min(0)
   private Integer price;

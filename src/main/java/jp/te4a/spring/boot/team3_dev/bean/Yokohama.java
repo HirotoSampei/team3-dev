@@ -8,6 +8,8 @@ import java.sql.Date;
 import javax.persistence.*;
 
 import org.springframework.beans.factory.annotation.Value;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 @Table(name = "yokohama_table")
 @Data
@@ -25,7 +27,7 @@ public class Yokohama {
 	@Column(nullable = false)
 	private String spec;
 	//purchase_date
-	@Value("#{new java.text.SimpleDateFormat(\"${mydate.format}\").parse(\"${mydate.value}\")}")
+	@JsonFormat(pattern="yyyy/MM/dd")
 	private Date purchase_date;
 	private int useful_date;
 	private String depreciation;
@@ -34,7 +36,7 @@ public class Yokohama {
 	@Column(nullable = false)
 	private String location;
 	//expiration_date
-	@Value("#{new java.text.SimpleDateFormat(\"${mydate.format}\").parse(\"${mydate.value}\")}")
+	@JsonFormat(pattern="yyyy/MM/dd")
 	private Date expiration_date;
 	private Integer price;
 }
