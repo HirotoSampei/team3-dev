@@ -28,7 +28,7 @@ public class Tokyo {
 	private String spec;
 	//purchase_date
 	private Date purchase_date;
-	private Integer useful_date;
+	private Integer useful_life;
 	private String depreciation;
 	private Boolean availability;
 	private Boolean loanability;
