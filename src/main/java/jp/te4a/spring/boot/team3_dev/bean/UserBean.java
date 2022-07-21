@@ -17,7 +17,6 @@ public class UserBean {
     @Id
     private String username;
 
-    @JsonIgnore
     private String password;
 
 }
