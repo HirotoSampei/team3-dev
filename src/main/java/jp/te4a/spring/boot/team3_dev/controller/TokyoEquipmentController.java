@@ -26,7 +26,7 @@ public class TokyoEquipmentController {
   }
   @GetMapping
   String list(Model model) {
-    model.addAttribute("equipment", tokyoService.findAll());
+    model.addAttribute("tokyo_table", tokyoService.findAll());
     return "equipment/list";
   }
   @PostMapping(path="create")

@@ -28,10 +28,10 @@ public class Sendai {
 	private String spec;
 	//purchase_date
 	private Date purchase_date;
-	private int useful_date;
+	private Integer useful_date;
 	private String depreciation;
-	private boolean availability;
-	private boolean loanability;
+	private Boolean availability;
+	private Boolean loanability;
 	@Column(nullable = false)
 	private String location;
 	//expiration_date
