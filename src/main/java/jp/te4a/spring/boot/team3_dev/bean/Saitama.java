@@ -36,5 +36,5 @@ public class Saitama {
 	private String location;
 	//expiration_date
 	private Date expiration_date;
-	private Integer price;
+	
 }
