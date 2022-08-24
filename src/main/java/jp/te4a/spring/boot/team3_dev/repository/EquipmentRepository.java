@@ -11,7 +11,7 @@ import jp.te4a.spring.boot.team3_dev.bean.Equipment;
 
 @Repository
 public interface EquipmentRepository extends JpaRepository<Equipment, Integer>{
-	@Query("SELECT X FROM Tokyo X ORDER BY X.machine_id")
+	@Query("SELECT X FROM Equipment X ORDER BY X.machine_id")
 	  List<Equipment> findAllOrderByMachine_id();
 
 }
