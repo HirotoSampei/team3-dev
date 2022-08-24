@@ -11,22 +11,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import jp.te4a.spring.boot.team3_dev.bean.Tokyo;
+import jp.te4a.spring.boot.team3_dev.bean.Equipment;
 import jp.te4a.spring.boot.team3_dev.form.EquipmentForm;
-import jp.te4a.spring.boot.team3_dev.service.TokyoEquipmentService;
+import jp.te4a.spring.boot.team3_dev.service.EquipmentService;
 
 @Controller
 @RequestMapping("equipment")
-public class TokyoEquipmentController {
+public class EquipmentController {
   @Autowired
-  TokyoEquipmentService tokyoService;
+  EquipmentService equipmentService;
   @ModelAttribute 
   EquipmentForm setUpForm() {
     return new EquipmentForm();
   }
   @GetMapping
   String list(Model model) {
-    model.addAttribute("tokyo_table", tokyoService.findAll());
+    model.addAttribute("equipment_table", equipmentService.findAll());
     return "equipment/list";
   }
   @PostMapping(path="create")
@@ -34,13 +34,13 @@ public class TokyoEquipmentController {
     if(result.hasErrors()) {
       return list(model);
     }
-    tokyoService.create(form);
+    equipmentService.create(form);
     return "redirect:/equipment";
   }
 
   @PostMapping(path = "edit", params = "form")
   String editForm(@RequestParam Integer machine_id, EquipmentForm form) {
-    EquipmentForm equipmentForm = tokyoService.findOne(machine_id);
+    EquipmentForm equipmentForm = equipmentService.findOne(machine_id);
     BeanUtils.copyProperties(equipmentForm,  form);
     return "equipment/edit";
   }
@@ -50,13 +50,13 @@ public class TokyoEquipmentController {
   if(result.hasErrors()) {
   return editForm(machine_id, form);
   }
-  tokyoService.update(form);
+  equipmentService.update(form);
   return "redirect:/equipment";
   }
 
   @PostMapping(path = "delete")
-  String delete(@RequestParam Tokyo machine_id) {
-    tokyoService.delete(machine_id);
+  String delete(@RequestParam Equipment machine_id) {
+    equipmentService.delete(machine_id);
     return "redirect:/equipment";
   }
   @PostMapping(path = "edit", params = "goToTop")

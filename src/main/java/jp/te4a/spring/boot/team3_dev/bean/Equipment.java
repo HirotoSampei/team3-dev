@@ -11,11 +11,11 @@ import org.springframework.beans.factory.annotation.Value;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
-@Table(name = "nigata_table")
+@Table(name = "equipment_table")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Nigata {
+public class Equipment {
 	@Id
 	private String machine_id ;
 	@Column(nullable = false)
@@ -28,7 +28,7 @@ public class Nigata {
 	private String spec;
 	//purchase_date
 	private Date purchase_date;
-	private Integer useful_date;
+	private Integer useful_life;
 	private String depreciation;
 	private Boolean availability;
 	private Boolean loanability;
