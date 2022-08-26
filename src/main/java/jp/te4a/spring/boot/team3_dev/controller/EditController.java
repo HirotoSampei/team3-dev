@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class EditController {
 	
-	@GetMapping(path="equipment/edit")
+	@GetMapping(path="edit")
 	String loginForm() {
-		return "equipment/edit";
+		return "edit";
 	}
 }
