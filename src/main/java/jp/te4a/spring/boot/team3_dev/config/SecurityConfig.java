@@ -9,12 +9,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 
-import jp.te4a.spring.boot.team3_dev.service.LoginUserDetailsService;
+
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-    private LoginUserDetailsService ioginuserDetailsService;
+	
+    
 	
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -30,21 +30,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
             	.antMatchers("/top").permitAll()
-                .antMatchers("/loginForm").permitAll()
-                .antMatchers("/users").permitAll()
-                .antMatchers("/users/create").permitAll()
                 .antMatchers("/equipment").permitAll()
                 .antMatchers("/edit").permitAll()
-                .anyRequest().authenticated()
-            .and()
-                .formLogin()
-                .loginProcessingUrl("/login")
-                     .loginPage("/loginForm")
-                     .failureUrl("/loginForm?error")
-                     //.defaultSuccessUrl("/equipment", true)
-                     //.usernameParameter("username").passwordParameter("{noop}password")
-          .and()
-              .logout()
-                 .logoutSuccessUrl("/loginForm");
+                .anyRequest().authenticated();
+          
+    
     }
 }
