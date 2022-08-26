@@ -39,13 +39,13 @@ public class EquipmentController {
   }
 
   @PostMapping(path = "edit", params = "form")
-  String editForm(@RequestParam Integer machine_id, EquipmentForm form) {
+  String editForm(@RequestParam String machine_id, EquipmentForm form) {
     EquipmentForm equipmentForm = equipmentService.findOne(machine_id);
     BeanUtils.copyProperties(equipmentForm,  form);
     return "equipment/edit";
   }
   @PostMapping(path = "edit")
-  String edit(@RequestParam Integer machine_id, @Validated EquipmentForm form,
+  String edit(@RequestParam String machine_id, @Validated EquipmentForm form,
                                                                                                                            BindingResult result) {
   if(result.hasErrors()) {
   return editForm(machine_id, form);

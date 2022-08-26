@@ -37,7 +37,7 @@ public class EquipmentService {
 	    }
 	    return formList;
 	    }
-	  public EquipmentForm findOne(Integer machine_id) {
+	  public EquipmentForm findOne(String machine_id) {
 	    Optional<Equipment> equipment = equipmentRepository.findById(machine_id);
 	    EquipmentForm equipmentForm = new EquipmentForm();
 	    BeanUtils.copyProperties(equipment, equipmentForm);
