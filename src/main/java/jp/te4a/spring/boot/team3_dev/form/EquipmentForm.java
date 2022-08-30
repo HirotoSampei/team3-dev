@@ -14,8 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class EquipmentForm {
   @NotNull
-  @Size(max = 9)
-  private String machine_id;
+  private Integer machine_id;
   @NotNull
   @Size(max = 40)
   private String name;
