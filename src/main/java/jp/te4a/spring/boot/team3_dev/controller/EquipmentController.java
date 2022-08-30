@@ -27,12 +27,17 @@ public class EquipmentController {
   @GetMapping
   String list(Model model) {
     model.addAttribute("equipment_table", equipmentService.findAll());
+    return "equipment/list";
+  }
+  @GetMapping
+  String register(Model model) {
+    model.addAttribute("equipment_table", equipmentService.findAll());
     return "equipment/register";
   }
   @PostMapping(path="create")
   String create(@Validated EquipmentForm form, BindingResult result , Model model) {
     if(result.hasErrors()) {
-      return list(model);
+      return register(model);
     }
     equipmentService.create(form);
     return "redirect:/equipment/register";
@@ -64,8 +69,5 @@ public class EquipmentController {
     return "redirect:/equipment";
   }
   
-  @GetMapping(path="register")
-	String register() {
-		return "equipment/register";
-	}
+ 
 }
