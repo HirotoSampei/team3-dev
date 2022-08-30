@@ -24,15 +24,17 @@ public class EquipmentController {
   EquipmentForm setUpForm() {
     return new EquipmentForm();
   }
-  @GetMapping
-  String list() {
-    //model.addAttribute("equipment_table", equipmentService.findAll());
-    return "equipment/list";
-  }
+ 
   @GetMapping
   String register(Model model) {
     model.addAttribute("equipment_table", equipmentService.findAll());
     return "equipment/register";
+  }
+  
+  @GetMapping(path="list")
+  String list() {
+    //model.addAttribute("equipment_table", equipmentService.findAll());
+    return "equipment/list";
   }
   @PostMapping(path="create")
   String create(@Validated EquipmentForm form, BindingResult result , Model model) {
