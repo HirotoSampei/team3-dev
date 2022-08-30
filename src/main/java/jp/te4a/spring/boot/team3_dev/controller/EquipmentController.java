@@ -20,26 +20,23 @@ import jp.te4a.spring.boot.team3_dev.service.EquipmentService;
 public class EquipmentController {
   @Autowired
   EquipmentService equipmentService;
-  @ModelAttribute 
+  @ModelAttribute
   EquipmentForm setUpForm() {
     return new EquipmentForm();
   }
- 
   @GetMapping
-  String register(Model model) {
+  String list(Model model) {
     model.addAttribute("equipment_table", equipmentService.findAll());
-    return "equipment/register";
-  }
-  
-  @GetMapping(path="list")
-  String list() {
-    //model.addAttribute("equipment_table", equipmentService.findAll());
     return "equipment/list";
+  }
+  @GetMapping(path="register")
+  String register() {
+    return "equipment/register";
   }
   @PostMapping(path="create")
   String create(@Validated EquipmentForm form, BindingResult result , Model model) {
     if(result.hasErrors()) {
-      return register(model);
+      return "equipment/register";
     }
     equipmentService.create(form);
     return "redirect:/equipment/register";
