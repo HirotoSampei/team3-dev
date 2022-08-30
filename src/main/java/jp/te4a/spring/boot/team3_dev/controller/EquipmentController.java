@@ -25,7 +25,7 @@ public class EquipmentController {
     return new EquipmentForm();
   }
   @GetMapping
-  String list(Model model) {
+  String list() {
     model.addAttribute("equipment_table", equipmentService.findAll());
     return "equipment/list";
   }
