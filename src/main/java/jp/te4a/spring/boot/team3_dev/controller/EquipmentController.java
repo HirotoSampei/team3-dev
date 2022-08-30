@@ -26,7 +26,7 @@ public class EquipmentController {
   }
   @GetMapping
   String list() {
-    model.addAttribute("equipment_table", equipmentService.findAll());
+    //model.addAttribute("equipment_table", equipmentService.findAll());
     return "equipment/list";
   }
   @GetMapping
