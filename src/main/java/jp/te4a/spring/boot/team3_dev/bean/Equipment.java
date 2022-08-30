@@ -17,7 +17,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @NoArgsConstructor
 public class Equipment {
 	@Id
-	private String machine_id ;
+	@GeneratedValue
+	private Integer machine_id ;
 	@Column(nullable = false)
 	private String name;
 	@Column(nullable = false)
