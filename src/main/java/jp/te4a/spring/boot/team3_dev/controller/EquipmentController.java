@@ -27,7 +27,7 @@ public class EquipmentController {
   @GetMapping
   String list(Model model) {
     model.addAttribute("equipment_table", equipmentService.findAll());
-    return "equipment/list";
+    return "equipment/register";
   }
   @PostMapping(path="create")
   String create(@Validated EquipmentForm form, BindingResult result , Model model) {
