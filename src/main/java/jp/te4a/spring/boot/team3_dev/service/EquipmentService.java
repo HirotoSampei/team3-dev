@@ -18,16 +18,20 @@ public class EquipmentService {
   EquipmentRepository equipmentRepository;
   public EquipmentForm create(EquipmentForm equipmentForm) {
 	  Equipment equipment = new Equipment();
-	  java.sql.Date sqlDate = java.sql.Date.valueOf(equipmentForm.getPurchase_date());
-	  equipment.setPurchase_date(sqlDate);
+	  java.sql.Date sqlDate1 = java.sql.Date.valueOf(equipmentForm.getPurchase_date());
+	  equipment.setPurchase_date(sqlDate1);
+	  java.sql.Date sqlDate2 = java.sql.Date.valueOf(equipmentForm.getExpiration_date());
+	  equipment.setPurchase_date(sqlDate2);
       BeanUtils.copyProperties(equipmentForm, equipment);
 	  equipmentRepository.save(equipment);
 	  return equipmentForm;
   }
   public EquipmentForm update(EquipmentForm equipmentForm) {
 	  	Equipment equipment = new Equipment();
-	  	java.sql.Date sqlDate = java.sql.Date.valueOf(equipmentForm.getPurchase_date());
-		equipment.setPurchase_date(sqlDate);  
+	  	java.sql.Date sqlDate1 = java.sql.Date.valueOf(equipmentForm.getPurchase_date());
+		equipment.setPurchase_date(sqlDate1);  
+		java.sql.Date sqlDate2 = java.sql.Date.valueOf(equipmentForm.getExpiration_date());
+		  equipment.setPurchase_date(sqlDate2);
 	  	BeanUtils.copyProperties(equipmentForm, equipment);
 	  	equipmentRepository.save(equipment);
 	  	return equipmentForm;
