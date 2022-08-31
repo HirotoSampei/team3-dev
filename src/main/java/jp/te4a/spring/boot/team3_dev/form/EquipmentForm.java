@@ -1,7 +1,7 @@
 package jp.te4a.spring.boot.team3_dev.form;
 
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;

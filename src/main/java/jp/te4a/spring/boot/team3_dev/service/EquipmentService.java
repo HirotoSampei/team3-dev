@@ -2,6 +2,8 @@ package jp.te4a.spring.boot.team3_dev.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,15 @@ public class EquipmentService {
   public EquipmentForm create(EquipmentForm equipmentForm) {
 	  Equipment equipment = new Equipment();
 	  BeanUtils.copyProperties(equipmentForm, equipment);
+	  SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	  String formattedDate1 = simpleDateFormat.format(equipment.getPurchase_date());
+      java.sql.Date date1 = java.sql.Date.valueOf(formattedDate1);
+      equipment.setPurchase_date(date1);
+      
+      String formattedDate2 = simpleDateFormat.format(equipment.getExpiration_date());
+      java.sql.Date date2 = java.sql.Date.valueOf(formattedDate2);
+      equipment.setExpiration_date(date2);
+      
 	  equipmentRepository.save(equipment);
 	  return equipmentForm;
   }
@@ -33,6 +44,15 @@ public class EquipmentService {
 	    for(Equipment equipment: beanList) {
 	      EquipmentForm equipmentForm = new EquipmentForm();
 	      BeanUtils.copyProperties(equipment, equipmentForm);
+	      
+	      SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		  String formattedDate1 = simpleDateFormat.format(equipment.getPurchase_date());
+	      java.sql.Date date1 = java.sql.Date.valueOf(formattedDate1);
+	      equipment.setPurchase_date(date1);
+	      
+	      String formattedDate2 = simpleDateFormat.format(equipment.getExpiration_date());
+	      java.sql.Date date2 = java.sql.Date.valueOf(formattedDate2);
+	      equipment.setExpiration_date(date2);
 	      formList.add(equipmentForm);
 	    }
 	    return formList;
