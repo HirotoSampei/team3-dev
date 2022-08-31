@@ -27,7 +27,7 @@ public class EquipmentForm {
   @NotNull
   @Size(max = 200)
   private String spec;
-  @DateTimeFormat(pattern = "yyyy-mm-dd")
+  @DateTimeFormat(pattern = "'yyyy-mm-dd'")
   private Date purchase_date;
   private Integer useful_life;
   private String depreciation;
@@ -36,7 +36,7 @@ public class EquipmentForm {
   @NotNull
   @Size(max = 40)
   private String location;
-  @DateTimeFormat(pattern = "yyyy-mm-dd")
+  @DateTimeFormat(pattern = "'yyyy-mm-dd'")
   private Date expiration_date;
   
 }
