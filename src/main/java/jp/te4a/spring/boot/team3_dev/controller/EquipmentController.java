@@ -38,6 +38,7 @@ public class EquipmentController {
     if(result.hasErrors()) {
       return "equipment/register";
     }
+    
     equipmentService.create(form);
     return "redirect:/equipment";
   }

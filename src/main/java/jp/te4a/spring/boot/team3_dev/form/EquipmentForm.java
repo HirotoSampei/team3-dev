@@ -1,7 +1,8 @@
 package jp.te4a.spring.boot.team3_dev.form;
 
 
-import java.sql.Date;
+import java.time.LocalDate;
+import java.util.Date;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -30,8 +31,8 @@ public class EquipmentForm {
   @Size(max = 200)
   private String spec;
   @NotNull
-  @DateTimeFormat(pattern = "yyyy-mm-dd")
-  private Date purchase_date;
+  @DateTimeFormat(pattern = "yyyy/mm/dd")
+  private LocalDate purchase_date;
   private Integer useful_life;
   private String depreciation;
   private Boolean availability;
@@ -40,7 +41,7 @@ public class EquipmentForm {
   @Size(max = 40)
   private String location;
   @NotNull
-  @DateTimeFormat(pattern = "yyyy-mm-dd")
-  private Date expiration_date;
+  @DateTimeFormat(pattern = "yyyy/mm/dd")
+  private LocalDate expiration_date;
   
 }
