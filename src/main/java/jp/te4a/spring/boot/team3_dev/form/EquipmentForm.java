@@ -30,8 +30,7 @@ public class EquipmentForm {
   @NotNull
   @Size(max = 200)
   private String spec;
-  @NotNull
-  @DateTimeFormat(pattern = "yyyy/mm/dd")
+  @DateTimeFormat(pattern = "yyyy-mm-dd")
   private LocalDate purchase_date;
   private Integer useful_life;
   private String depreciation;
@@ -40,8 +39,7 @@ public class EquipmentForm {
   @NotNull
   @Size(max = 40)
   private String location;
-  @NotNull
-  @DateTimeFormat(pattern = "yyyy/mm/dd")
+  @DateTimeFormat(pattern = "yyyy-mm-dd")
   private LocalDate expiration_date;
   
 }
