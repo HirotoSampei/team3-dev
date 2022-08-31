@@ -39,7 +39,7 @@ public class EquipmentController {
       return "equipment/register";
     }
     equipmentService.create(form);
-    return "redirect:/equipment/register";
+    return "redirect:/equipment";
   }
 
   @PostMapping(path = "edit", params = "form")
