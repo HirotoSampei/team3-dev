@@ -46,7 +46,7 @@ public class EquipmentService {
 	      LocalDate localdate1 = equipment.getPurchase_date().toLocalDate();
 	      equipmentForm.setPurchase_date(localdate1);
 	      LocalDate localdate2 = equipment.getExpiration_date().toLocalDate();
-	      equipmentForm.setPurchase_date(localdate2);
+	      equipmentForm.setExpiration_date(localdate2);
 	      BeanUtils.copyProperties(equipment, equipmentForm);
 	      formList.add(equipmentForm);
 	    }
