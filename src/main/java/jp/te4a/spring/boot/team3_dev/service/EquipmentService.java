@@ -22,7 +22,7 @@ public class EquipmentService {
 	  java.sql.Date sqlDate1 = java.sql.Date.valueOf(equipmentForm.getPurchase_date());
 	  equipment.setPurchase_date(sqlDate1);
 	  java.sql.Date sqlDate2 = java.sql.Date.valueOf(equipmentForm.getExpiration_date());
-	  equipment.setPurchase_date(sqlDate2);
+	  equipment.setExpiration_date(sqlDate2);
       BeanUtils.copyProperties(equipmentForm, equipment);
 	  equipmentRepository.save(equipment);
 	  return equipmentForm;
@@ -32,7 +32,7 @@ public class EquipmentService {
 	  	java.sql.Date sqlDate1 = java.sql.Date.valueOf(equipmentForm.getPurchase_date());
 		equipment.setPurchase_date(sqlDate1);  
 		java.sql.Date sqlDate2 = java.sql.Date.valueOf(equipmentForm.getExpiration_date());
-		  equipment.setPurchase_date(sqlDate2);
+		  equipment.setExpiration_date(sqlDate2);
 	  	BeanUtils.copyProperties(equipmentForm, equipment);
 	  	equipmentRepository.save(equipment);
 	  	return equipmentForm;
