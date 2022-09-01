@@ -1,4 +1,5 @@
 package jp.te4a.spring.boot.team3_dev.service;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -42,6 +43,10 @@ public class EquipmentService {
 	    List<EquipmentForm> formList = new ArrayList<EquipmentForm>();
 	    for(Equipment equipment: beanList) {
 	      EquipmentForm equipmentForm = new EquipmentForm();
+	      LocalDate localdate1 = equipment.getPurchase_date().toLocalDate();
+	      equipmentForm.setPurchase_date(localdate1);
+	      LocalDate localdate2 = equipment.getExpiration_date().toLocalDate();
+	      equipmentForm.setPurchase_date(localdate2);
 	      BeanUtils.copyProperties(equipment, equipmentForm);
 	      formList.add(equipmentForm);
 	    }
