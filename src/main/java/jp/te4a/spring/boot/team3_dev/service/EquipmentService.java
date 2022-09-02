@@ -62,7 +62,7 @@ public class EquipmentService {
 	  }
 	  
 	  public EquipmentForm sort(String location) {
-		    list<Equipment> equipment = sortRepository.findByLocation(location);
+		    List<Equipment> sortedList = sortRepository.findByLocation(location);
 		    EquipmentForm equipmentForm = new EquipmentForm();
 		    BeanUtils.copyProperties(equipment, equipmentForm);
 		    return equipmentForm;
