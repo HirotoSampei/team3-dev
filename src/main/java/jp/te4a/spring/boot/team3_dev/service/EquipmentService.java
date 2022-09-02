@@ -13,10 +13,12 @@ import org.springframework.stereotype.Service;
 import jp.te4a.spring.boot.team3_dev.bean.Equipment;
 import jp.te4a.spring.boot.team3_dev.form.EquipmentForm;
 import jp.te4a.spring.boot.team3_dev.repository.EquipmentRepository;
+import jp.te4a.spring.boot.team3_dev.repository.SortRepository;
 @Service
 public class EquipmentService {
   @Autowired
   EquipmentRepository equipmentRepository;
+  SortRepository sortRepository;
   public EquipmentForm create(EquipmentForm equipmentForm) {
 	  Equipment equipment = new Equipment();
 	  java.sql.Date sqlDate1 = java.sql.Date.valueOf(equipmentForm.getPurchase_date());
@@ -60,7 +62,7 @@ public class EquipmentService {
 	  }
 	  
 	  public EquipmentForm sort(String location) {
-		    Optional<Equipment> equipment = equipmentRepository.findByLocation(location);
+		    Optional<Equipment> equipment = sortRepository.findByLocation(location);
 		    EquipmentForm equipmentForm = new EquipmentForm();
 		    BeanUtils.copyProperties(equipment, equipmentForm);
 		    return equipmentForm;
