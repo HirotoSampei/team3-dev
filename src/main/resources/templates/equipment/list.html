@@ -40,7 +40,6 @@
       </tr>
     </table>
     
-    <form th:action="@{/equipment/sort}" method="post">
 		<select name="locationlist">
 			<option value="東京本社">東京本社</option>
 			<option value="仙台支社">仙台支社</option>
@@ -49,9 +48,10 @@
 			<option value="大阪支社">大阪支社</option>
 			<option value="横浜支社">横浜支社</option>
 		</select>
+		<form th:action="@{/equipment/sort}" method="post">
 		    <input type="submit" name="form" value="ソート" />
             <input type="hidden" name="location" th:value="東京本社"/>
-    </form>
+    	</form>
   </body>
 </html>
 
