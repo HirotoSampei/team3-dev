@@ -11,6 +11,6 @@ import jp.te4a.spring.boot.team3_dev.bean.Equipment;
 
 
 @Repository
-public interface EquipmentRepository extends JpaRepository<Equipment, Integer>{
+public interface SortRepository extends JpaRepository<Equipment, Integer>{
 	  List<Equipment> findByLocation(String location);
 }
