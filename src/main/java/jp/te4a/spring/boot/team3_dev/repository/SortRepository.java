@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import jp.te4a.spring.boot.team3_dev.bean.Equipment;
 
-
 @Repository
 public interface SortRepository extends JpaRepository<Equipment, String>{
 	  List<Equipment> findByLocation(String location);
