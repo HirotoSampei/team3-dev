@@ -18,6 +18,7 @@ import jp.te4a.spring.boot.team3_dev.service.EquipmentService;
 @Controller
 @RequestMapping("equipment")
 public class EquipmentController {
+	int flg = 0;
   @Autowired
   EquipmentService equipmentService;
   @ModelAttribute
@@ -26,7 +27,9 @@ public class EquipmentController {
   }
   @GetMapping
   String list(Model model) {
-    model.addAttribute("equipment_table", equipmentService.findAll());
+	  if(flg==0) {
+		  model.addAttribute("equipment_table", equipmentService.findAll());
+	  }
     return "equipment/list";
   }
   @GetMapping(path="register")
@@ -73,7 +76,8 @@ public class EquipmentController {
   String sortForm(@RequestParam String location, EquipmentForm form) {
     EquipmentForm equipmentForm = equipmentService.sort(location);
     BeanUtils.copyProperties(equipmentForm,  form);
-    return "top";
+    flg=1;
+    return "redirect:/equipment";
   }
  
 }
