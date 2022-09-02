@@ -58,4 +58,11 @@ public class EquipmentService {
 	    BeanUtils.copyProperties(equipment, equipmentForm);
 	    return equipmentForm;
 	  }
+	  
+	  public EquipmentForm sort(String location) {
+		    Optional<Equipment> equipment = equipmentRepository.findByLocation(location);
+		    EquipmentForm equipmentForm = new EquipmentForm();
+		    BeanUtils.copyProperties(equipment, equipmentForm);
+		    return equipmentForm;
+		  }
 	}

@@ -39,6 +39,19 @@
         </td>
       </tr>
     </table>
+    
+    <form th:action="@{/equipment/sort}" method="post">
+		<select name="locationlist">
+			<option value="東京本社">東京本社</option>
+			<option value="仙台支社">仙台支社</option>
+			<option value="新潟支社">新潟支社</option>
+			<option value="埼玉支社">埼玉支社</option>
+			<option value="大阪支社">大阪支社</option>
+			<option value="横浜支社">横浜支社</option>
+		</select>
+		    <input type="submit" name="form" value="ソート" />
+            <input type="hidden" th:value="selected:{locationlistS}"/>
+    </form>
   </body>
 </html>
 

@@ -16,3 +16,7 @@ public interface EquipmentRepository extends JpaRepository<Equipment, Integer>{
 
 }
 
+@Repository
+public interface EquipmentRepository extends JpaRepository<Equipment, Integer>{
+	  List<Equipment> findByLocation(String location);
+}

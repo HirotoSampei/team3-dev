@@ -69,5 +69,11 @@ public class EquipmentController {
     return "redirect:/equipment";
   }
   
+  @PostMapping(path = "sort", params = "form")
+  String editForm(@RequestParam String location, EquipmentForm form) {
+    EquipmentForm equipmentForm = equipmentService.sort(location);
+    BeanUtils.copyProperties(equipmentForm,  form);
+    return "redirect:/equipment";
+  }
  
 }
