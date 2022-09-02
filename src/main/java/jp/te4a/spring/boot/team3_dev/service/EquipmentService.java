@@ -62,10 +62,10 @@ public class EquipmentService {
 	    return equipmentForm;
 	  }
 	  
-	  public EquipmentForm sort(String location) {
-		    List<Equipment> equipment = sortRepository.findByLocation(location);
+	  public List<EquipmentForm> sort(String location) {
+		    List<Equipment> sortList = sortRepository.findByLocation(location);
 		    List<EquipmentForm> sortFormList = new ArrayList<EquipmentForm>();
-		    for(Equipment equipment: beanList) {
+		    for(Equipment equipment: sortList) {
 			      EquipmentForm equipmentForm = new EquipmentForm();
 			      LocalDate localdate1 = equipment.getPurchase_date().toLocalDate();
 			      equipmentForm.setPurchase_date(localdate1);

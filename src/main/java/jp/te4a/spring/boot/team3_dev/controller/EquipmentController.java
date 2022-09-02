@@ -1,4 +1,7 @@
 package jp.te4a.spring.boot.team3_dev.controller;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +22,7 @@ import jp.te4a.spring.boot.team3_dev.service.EquipmentService;
 @RequestMapping("equipment")
 public class EquipmentController {
 	int flg = 0;
+	List<EquipmentForm> equipmentForm = new ArrayList<EquipmentForm>();
   @Autowired
   EquipmentService equipmentService;
   @ModelAttribute
@@ -76,7 +80,7 @@ public class EquipmentController {
   
   @PostMapping(path = "sort", params = "form")
   String sortForm(@RequestParam String location, EquipmentForm form) {
-    List<EquipmentForm> equipmentForm = equipmentService.sort(location);
+    equipmentForm = equipmentService.sort(location);
     flg=1;
     return "redirect:/equipment";
   }
