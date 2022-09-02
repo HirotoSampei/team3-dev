@@ -1,7 +1,6 @@
 package jp.te4a.spring.boot.team3_dev.service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,6 +43,8 @@ public class SortMain {
 				.collect(Collectors.toList());
 		for(SortOption sortoption :nameList) {
 			System.out.println("品名 = " + sortoption.name);
+			
+			System.out.println();
 		}
 		
 		List <SortOption> nameList2 = Team3sortlist.stream()
