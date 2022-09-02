@@ -11,5 +11,6 @@ import jp.te4a.spring.boot.team3_dev.bean.Equipment;
 
 @Repository
 public interface SortRepository extends JpaRepository<Equipment, String>{
+	@Query("SELECT X FROM Equipment X WHERE X.location=?1")
 	  List<Equipment> findByLocation(String location);
 }
