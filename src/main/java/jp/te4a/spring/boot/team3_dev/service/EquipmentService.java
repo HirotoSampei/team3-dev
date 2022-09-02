@@ -18,6 +18,7 @@ import jp.te4a.spring.boot.team3_dev.repository.SortRepository;
 public class EquipmentService {
   @Autowired
   EquipmentRepository equipmentRepository;
+  @Autowired
   SortRepository sortRepository;
   public EquipmentForm create(EquipmentForm equipmentForm) {
 	  Equipment equipment = new Equipment();
