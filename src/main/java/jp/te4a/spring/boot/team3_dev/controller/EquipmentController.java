@@ -29,6 +29,8 @@ public class EquipmentController {
   String list(Model model) {
 	  if(flg==0) {
 		  model.addAttribute("equipment_table", equipmentService.findAll());
+	  }else {
+		  model.addAttribute("equipment_table", equipmentForm)
 	  }
     return "equipment/list";
   }
@@ -74,8 +76,7 @@ public class EquipmentController {
   
   @PostMapping(path = "sort", params = "form")
   String sortForm(@RequestParam String location, EquipmentForm form) {
-    EquipmentForm equipmentForm = equipmentService.sort(location);
-    BeanUtils.copyProperties(equipmentForm,  form);
+    List<EquipmentForm> equipmentForm = equipmentService.sort(location);
     flg=1;
     return "redirect:/equipment";
   }

@@ -64,8 +64,19 @@ public class EquipmentService {
 	  
 	  public EquipmentForm sort(String location) {
 		    List<Equipment> equipment = sortRepository.findByLocation(location);
-		    EquipmentForm equipmentForm = new EquipmentForm();
+		    List<EquipmentForm> sortFormList = new ArrayList<EquipmentForm>();
+		    for(Equipment equipment: beanList) {
+			      EquipmentForm equipmentForm = new EquipmentForm();
+			      LocalDate localdate1 = equipment.getPurchase_date().toLocalDate();
+			      equipmentForm.setPurchase_date(localdate1);
+			      LocalDate localdate2 = equipment.getExpiration_date().toLocalDate();
+			      equipmentForm.setExpiration_date(localdate2);
+			      BeanUtils.copyProperties(equipment, equipmentForm);
+			      sortFormList.add(equipmentForm);
+			    }
+			    return sortFormList;
+			}
+		    /*EquipmentForm equipmentForm = new EquipmentForm();
 		    BeanUtils.copyProperties(equipment, equipmentForm);
-		    return equipmentForm;
-		  }
+		    return equipmentForm;*/		  
 	}
