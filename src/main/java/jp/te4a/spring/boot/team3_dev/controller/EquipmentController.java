@@ -30,7 +30,7 @@ public class EquipmentController {
 	  if(flg==0) {
 		  model.addAttribute("equipment_table", equipmentService.findAll());
 	  }else {
-		  model.addAttribute("equipment_table", equipmentForm)
+		  model.addAttribute("equipment_table", equipmentForm);
 	  }
     return "equipment/list";
   }
