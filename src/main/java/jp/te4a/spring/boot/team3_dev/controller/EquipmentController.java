@@ -36,6 +36,7 @@ public class EquipmentController {
 	  }else {
 		  model.addAttribute("equipment_table", equipmentForm);
 	  }
+	  flg=0;
     return "equipment/list";
   }
   @GetMapping(path="register")
