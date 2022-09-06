@@ -70,7 +70,7 @@ public class EquipmentController {
   }
 
   @PostMapping(path = "delete")
-  Integer delete(@RequestParam Equipment machine_id) {
+  String delete(@RequestParam Integer machine_id) {
     equipmentService.delete(machine_id);
     return "redirect:/equipment";
   }
