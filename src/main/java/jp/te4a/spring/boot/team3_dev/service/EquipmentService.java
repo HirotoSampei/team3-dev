@@ -40,7 +40,7 @@ public class EquipmentService {
 	  	equipmentRepository.save(equipment);
 	  	return equipmentForm;
 	  }
-	  public void delete(Equipment machine_id) {  equipmentRepository.delete(machine_id); }
+	  public void delete(Integer machine_id) {  equipmentRepository.deleteById(machine_id); }
 	  public List<EquipmentForm> findAll() {
 	    List<Equipment> beanList = equipmentRepository.findAll();
 	    List<EquipmentForm> formList = new ArrayList<EquipmentForm>();
